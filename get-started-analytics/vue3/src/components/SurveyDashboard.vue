@@ -27,22 +27,22 @@ const surveyJson = {
   completedHtml: "Thank you for your feedback!",
 };
 
-const surveyResults = [{
-  "satisfaction-score": 5,
-  "nps-score": 10
-}, {
-  "satisfaction-score": 5,
-  "nps-score": 9
-}, {
-  "satisfaction-score": 3,
-  "nps-score": 6
-}, {
-  "satisfaction-score": 3,
-  "nps-score": 6
-}, {
-  "satisfaction-score": 2,
-  "nps-score": 3
-}];
+function randomIntFromInterval(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function generateData() {
+  const data = [];
+  for (let index = 0; index < 100; index++) {
+    const satisfactionScore = randomIntFromInterval(index % 3 ? 1 : 3, 5);
+    const npsScore = satisfactionScore > 3 ? randomIntFromInterval(7, 10) : randomIntFromInterval(0, 6);
+    data.push({
+      "satisfaction-score": satisfactionScore,
+      "nps-score": npsScore
+    });
+  }
+  return data;
+}
 
 const vizPanelOptions = {
   allowHideQuestions: false
@@ -52,7 +52,7 @@ onMounted(() => {
   const survey = new Model(surveyJson);
   const vizPanel = new VisualizationPanel(
     survey.getAllQuestions(),
-    surveyResults,
+    generateData(),
     vizPanelOptions
   );
   vizPanel.render("surveyVizPanel");
