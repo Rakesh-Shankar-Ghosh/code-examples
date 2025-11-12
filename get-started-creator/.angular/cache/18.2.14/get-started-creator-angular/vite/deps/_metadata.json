@@ -1,0 +1,58 @@
+{
+  "hash": "3fa0656d",
+  "configHash": "2e489bc2",
+  "lockfileHash": "ebb98b46",
+  "browserHash": "15bb96f1",
+  "optimized": {
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "d84d95d2",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "040dd595",
+      "needsInterop": false
+    },
+    "ace-builds/src-noconflict/ace": {
+      "src": "../../../../../../node_modules/ace-builds/src-noconflict/ace.js",
+      "file": "ace-builds_src-noconflict_ace.js",
+      "fileHash": "09aa146c",
+      "needsInterop": true
+    },
+    "ace-builds/src-noconflict/ext-searchbox": {
+      "src": "../../../../../../node_modules/ace-builds/src-noconflict/ext-searchbox.js",
+      "file": "ace-builds_src-noconflict_ext-searchbox.js",
+      "fileHash": "f0856b9c",
+      "needsInterop": true
+    },
+    "survey-creator-angular": {
+      "src": "../../../../../../node_modules/survey-creator-angular/fesm2015/survey-creator-angular.js",
+      "file": "survey-creator-angular.js",
+      "fileHash": "c99852cf",
+      "needsInterop": false
+    },
+    "survey-creator-core": {
+      "src": "../../../../../../node_modules/survey-creator-core/fesm/survey-creator-core.js",
+      "file": "survey-creator-core.js",
+      "fileHash": "a679ace4",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-BFU3RVPC": {
+      "file": "chunk-BFU3RVPC.js"
+    },
+    "chunk-7S2N5QG4": {
+      "file": "chunk-7S2N5QG4.js"
+    },
+    "chunk-KQPURX2Q": {
+      "file": "chunk-KQPURX2Q.js"
+    },
+    "chunk-3OV72XIM": {
+      "file": "chunk-3OV72XIM.js"
+    }
+  }
+}
