@@ -3,23 +3,30 @@ import { ActivatedRoute } from "@angular/router";
 import { Serializer } from "survey-core";
 import { SurveyCreatorModel } from "survey-creator-core";
 import { getSurveyJSON, getSurveyName, saveSurveyJSON, saveSurveyName } from "../WebDataService";
+import { AppService } from "../app.service";
 
 Serializer.findProperty("survey", "title").isRequired = true;
 
 @Component({
   templateUrl: "./creator-widget.component.html",
-  selector: "creator-widget"
+  selector: "creator-widget",
 })
 export class CreatorWidgetComponent implements OnInit {
   creator!: SurveyCreatorModel;
-  constructor(private route: ActivatedRoute) {
-
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private surveyService: AppService
+  ) {}
   ngOnInit() {
-    const id: number = Number.parseInt(this.route.snapshot.queryParams["id"]);
-    this.creator = new SurveyCreatorModel()
+    // const id: number = Number.parseInt(this.route.snapshot.queryParams["id"]);
+    const id: number = this.route.snapshot.queryParams["id"];
+    
+    this.creator = new SurveyCreatorModel();
     this.creator.autoSaveEnabled = true;
-    this.creator.saveSurveyFunc = (saveNo: number, callback: (saveNo: number, arg: boolean) => void) => {
+    this.creator.saveSurveyFunc = (
+      saveNo: number,
+      callback: (saveNo: number, arg: boolean) => void
+    ) => {
       // You can use `this.creator.text` as an alternative to `this.creator.JSON`
       saveSurveyJSON(id, this.creator.JSON, () => {
         callback(saveNo, true);

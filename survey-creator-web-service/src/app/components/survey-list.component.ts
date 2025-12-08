@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { createSurvey, deleteSurvey, getSurveyItems } from "../WebDataService";
+import { AppService } from "../app.service";
 
 interface SurveyListItem {
   name: string;
@@ -9,14 +10,16 @@ interface SurveyListItem {
 
 @Component({
   templateUrl: "./survey-list.component.html",
-  selector: "survey-list"
+  selector: "survey-list",
 })
 export class SurveyListComponent {
-  constructor(private router: Router) { }
-  public items: Array<SurveyListItem> = []
+  constructor(private router: Router) {}
+  public items: Array<SurveyListItem> = [];
   public addNewSurvey() {
     createSurvey((newItem) => {
-      this.router.navigate(["/editsurvey"], { queryParams: { id: newItem.id.toString() } });
+      this.router.navigate(["/editsurvey"], {
+        queryParams: { id: newItem.id.toString() },
+      });
     });
   }
   public removeSurvey(id: number) {
@@ -24,8 +27,8 @@ export class SurveyListComponent {
       this.items = currentItems;
     });
   }
-  ngOnInit() {
-    getSurveyItems((currentItems) => {
+  async ngOnInit() {
+    await getSurveyItems((currentItems) => {
       this.items = currentItems;
     });
   }
