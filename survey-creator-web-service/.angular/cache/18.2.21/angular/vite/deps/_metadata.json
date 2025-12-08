@@ -1,0 +1,70 @@
+{
+  "hash": "08249198",
+  "configHash": "1149553f",
+  "lockfileHash": "e988d398",
+  "browserHash": "6083126e",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "da1ce75b",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "04cf1204",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "aeb2e73b",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "17664821",
+      "needsInterop": false
+    },
+    "survey-core": {
+      "src": "../../../../../../node_modules/survey-core/fesm/survey-core.mjs",
+      "file": "survey-core.js",
+      "fileHash": "231eccf2",
+      "needsInterop": false
+    },
+    "survey-creator-angular": {
+      "src": "../../../../../../node_modules/survey-creator-angular/fesm2015/survey-creator-angular.js",
+      "file": "survey-creator-angular.js",
+      "fileHash": "3d88f89a",
+      "needsInterop": false
+    },
+    "survey-creator-core": {
+      "src": "../../../../../../node_modules/survey-creator-core/fesm/survey-creator-core.mjs",
+      "file": "survey-creator-core.js",
+      "fileHash": "19d35cbe",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-5O23GHZZ": {
+      "file": "chunk-5O23GHZZ.js"
+    },
+    "chunk-W7DT3XWG": {
+      "file": "chunk-W7DT3XWG.js"
+    },
+    "chunk-FXWUA7XV": {
+      "file": "chunk-FXWUA7XV.js"
+    },
+    "chunk-YT422ZJT": {
+      "file": "chunk-YT422ZJT.js"
+    },
+    "chunk-O4X7YXOR": {
+      "file": "chunk-O4X7YXOR.js"
+    },
+    "chunk-WDMUDEB6": {
+      "file": "chunk-WDMUDEB6.js"
+    }
+  }
+}
