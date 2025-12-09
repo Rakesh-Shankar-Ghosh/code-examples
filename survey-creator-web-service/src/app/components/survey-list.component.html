@@ -2,15 +2,21 @@
   <ul *ngFor="let item of items">
     <li key="{item.id}">
       <a [routerLink]="['/editsurvey']" [queryParams]="{ id: item.id }">{{
-        item.json.title || item.name
+        item?.json?.title || item.name
       }}</a>
 
       <a
         class="edit-link"
-        [routerLink]="['editsurvey']"
+        [routerLink]="['run']"
         [queryParams]="{ id: item.id }"
       >
-        <button type="button" class="btn btn--primary">Run</button>
+        <button
+          (click)="runSurvey(item.id)"
+          type="button"
+          class="btn btn--primary"
+        >
+          Run
+        </button>
       </a>
 
       <a

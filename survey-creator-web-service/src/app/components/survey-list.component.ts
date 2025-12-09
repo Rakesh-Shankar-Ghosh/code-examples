@@ -1,7 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { createSurvey, deleteSurvey, getSurveyItems } from "../WebDataService";
 import { AppService } from "../app.service";
+import { SurveyRunComponent } from "./survey run/survey-run.component";
 
 interface SurveyListItem {
   name: string;
@@ -13,8 +14,17 @@ interface SurveyListItem {
   selector: "survey-list",
 })
 export class SurveyListComponent {
+  @ViewChild(SurveyRunComponent, { static: false })
+  surveyRunChild!: SurveyRunComponent;
+
   constructor(private router: Router) {}
+
   public items: Array<any> = [];
+
+  public async runSurvey(id: any) {
+    await this.surveyRunChild.getSurveyToRun(id);
+  }
+
   public addNewSurvey() {
     createSurvey((newItem) => {
       this.router.navigate(["/editsurvey"], {
@@ -22,13 +32,7 @@ export class SurveyListComponent {
       });
     });
   }
-  public async removeSurvey(id: number) {
-    await deleteSurvey(id, (currentItems) => {
-      this.items = currentItems;
-    });
-  }
-
-  public async runSurvey(id: number) {
+  public async removeSurvey(id: any) {
     await deleteSurvey(id, (currentItems) => {
       this.items = currentItems;
     });
