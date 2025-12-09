@@ -7,6 +7,7 @@ import { CreatorWidgetComponent } from "./components/creator-widget.component";
 import { SurveyListComponent } from "./components/survey-list.component";
 import { HttpClientModule } from "@angular/common/http";
 import { SurveyRunComponent } from "./components/survey run/survey-run.component";
+import { SurveyResultComponent } from "./components/survey result/survey-result.component";
 
 @NgModule({
   declarations: [AppComponent, CreatorWidgetComponent, SurveyListComponent],
@@ -15,6 +16,7 @@ import { SurveyRunComponent } from "./components/survey run/survey-run.component
     AppRoutingModule,
     SurveyCreatorModule,
     SurveyRunComponent,
+    SurveyResultComponent,
     HttpClientModule,
   ],
   providers: [],

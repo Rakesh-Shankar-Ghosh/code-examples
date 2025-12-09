@@ -11,26 +11,7 @@ import { Model } from "survey-core";
 })
 export class SurveyRunComponent implements OnInit {
   // --- Static JSON from you ---
-  surveyData: any = {
-    // _id: "6937c97d97d317815e38a96d",
-    // name: "New Survey 5",
-    // json: {
-    //   title: "tttttt",
-    //   pages: [
-    //     {
-    //       name: "page1",
-    //       elements: [
-    //         {
-    //           type: "text",
-    //           name: "question1",
-    //           title: "wwwww",
-    //         },
-    //       ],
-    //     },
-    //   ],
-    // },
-    // id: "6937c97c97d317815e38a96c",
-  };
+  surveyData: any = {};
 
   surveyModel!: Model;
 

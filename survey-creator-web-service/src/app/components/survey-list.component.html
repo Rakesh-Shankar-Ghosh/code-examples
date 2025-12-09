@@ -29,10 +29,16 @@
 
       <a
         class="edit-link"
-        [routerLink]="['editsurvey']"
+        [routerLink]="['results']"
         [queryParams]="{ id: item.id }"
       >
-        <button type="button" class="btn btn--primary">Results</button>
+        <button
+          (click)="runSurvey(item.id)"
+          type="button"
+          class="btn btn--primary"
+        >
+          Results
+        </button>
       </a>
 
       <button
