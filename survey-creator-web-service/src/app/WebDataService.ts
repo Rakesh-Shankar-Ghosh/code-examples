@@ -34,8 +34,8 @@ export function createSurvey(onCallback: CallBackFunc) {
   }, timeOutDelay);
 }
 // Delete a survey by `id` and return the updated survey list
-export function deleteSurvey(id: number, onCallback: CallBackFunc) {
-  deleteSurveyInternal(id);
+export async function deleteSurvey(id: number, onCallback: CallBackFunc) {
+  await deleteSurveyInternal(id);
   setTimeout(() => {
     onCallback(getSurveyItemsInternal());
   }, timeOutDelay);
@@ -198,7 +198,26 @@ async function createSurveyInternal() {
 
   return newItem;
 }
+// async function deleteSurveyInternalOld(id: number) {
+//   const list = await getSurveyItemsInternal();
+//   for (var i = 0; i < list.length; i++) {
+//     if (list[i].id === id) {
+
+//       list.splice(i, 1);
+//       break;
+//     }
+//   }
+//   setSurveyItemsInternal();
+// }
+
 async function deleteSurveyInternal(id: number) {
+  const res = await fetch(`http://localhost:3000/api/delete?id=${id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  // setSurveyItemsInternal();
+
   const list = await getSurveyItemsInternal();
   for (var i = 0; i < list.length; i++) {
     if (list[i].id === id) {
@@ -208,6 +227,7 @@ async function deleteSurveyInternal(id: number) {
   }
   setSurveyItemsInternal();
 }
+
 async function getSurveyInfoInternal(id: number) {
   const list = await getSurveyItemsInternal();
   for (var i = 0; i < list.length; i++) {

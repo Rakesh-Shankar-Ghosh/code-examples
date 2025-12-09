@@ -14,7 +14,7 @@ interface SurveyListItem {
 })
 export class SurveyListComponent {
   constructor(private router: Router) {}
-  public items: Array<SurveyListItem> = [];
+  public items: Array<any> = [];
   public addNewSurvey() {
     createSurvey((newItem) => {
       this.router.navigate(["/editsurvey"], {
@@ -22,8 +22,8 @@ export class SurveyListComponent {
       });
     });
   }
-  public removeSurvey(id: number) {
-    deleteSurvey(id, (currentItems) => {
+  public async removeSurvey(id: number) {
+    await deleteSurvey(id, (currentItems) => {
       this.items = currentItems;
     });
   }

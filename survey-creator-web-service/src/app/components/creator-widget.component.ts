@@ -2,7 +2,12 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Serializer } from "survey-core";
 import { SurveyCreatorModel } from "survey-creator-core";
-import { getSurveyJSON, getSurveyName, saveSurveyJSON, saveSurveyName } from "../WebDataService";
+import {
+  getSurveyJSON,
+  getSurveyName,
+  saveSurveyJSON,
+  saveSurveyName,
+} from "../WebDataService";
 import { AppService } from "../app.service";
 
 Serializer.findProperty("survey", "title").isRequired = true;
@@ -17,10 +22,11 @@ export class CreatorWidgetComponent implements OnInit {
     private route: ActivatedRoute,
     private surveyService: AppService
   ) {}
-  ngOnInit() {
+  async ngOnInit() {
     // const id: number = Number.parseInt(this.route.snapshot.queryParams["id"]);
     const id: number = this.route.snapshot.queryParams["id"];
-    
+    let response: any = null;
+
     this.creator = new SurveyCreatorModel();
     this.creator.autoSaveEnabled = true;
     this.creator.saveSurveyFunc = (
@@ -45,17 +51,50 @@ export class CreatorWidgetComponent implements OnInit {
         }
       }
     });
-    getSurveyJSON(id, (json: any) => {
+
+    getSurveyJSON(id, async (json: any) => {
+      const res = await fetch(
+        `http://localhost:3000/api/getSurvey?surveyId=${id}`,
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+
+      const data = await res.json();
+      response = structuredClone(data);
+
       // Save the survey title to prevent it from being overwritten
-      const prevTitle = this.creator.survey.title;
+      const prevTitle = data.json.title;
       // You can use `this.creator.text` as an alternative to `this.creator.JSON`
-      this.creator.JSON = json;
+      this.creator.JSON = data.json;
       if (!!prevTitle) {
         this.creator.survey.title = prevTitle;
       }
     });
-    getSurveyName(id, (name: string) => {
-      this.creator.survey.title = name;
+
+    getSurveyName(id, async (name: string) => {
+      const res = await fetch(
+        `http://localhost:3000/api/getSurvey?surveyId=${id}`,
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+
+      const data = await res.json();
+      this.creator.survey.title = data?.json?.title || data?.name;
+      // this.creator.survey.title = name
     });
   }
-} 
+}
+
+// getSurveyJSON(id, (json: any) => {
+//   // Save the survey title to prevent it from being overwritten
+//   const prevTitle = this.creator.survey.title;
+//   // You can use `this.creator.text` as an alternative to `this.creator.JSON`
+//   this.creator.JSON = json;
+//   if (!!prevTitle) {
+//     this.creator.survey.title = prevTitle;
+//   }
+// });
