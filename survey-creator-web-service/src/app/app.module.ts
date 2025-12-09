@@ -7,19 +7,21 @@ import { CreatorWidgetComponent } from './components/creator-widget.component';
 import { SurveyListComponent } from './components/survey-list.component';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     CreatorWidgetComponent,
-    SurveyListComponent
+    SurveyListComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SurveyCreatorModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

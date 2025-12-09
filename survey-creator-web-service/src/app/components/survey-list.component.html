@@ -4,6 +4,15 @@
       <a [routerLink]="['/editsurvey']" [queryParams]="{ id: item.id }">{{
         item.json.title || item.name
       }}</a>
+
+      <a
+        class="edit-link"
+        [routerLink]="['editsurvey']"
+        [queryParams]="{ id: item.id }"
+      >
+        <button type="button" class="btn btn--primary">Run</button>
+      </a>
+
       <a
         class="edit-link"
         [routerLink]="['editsurvey']"
@@ -11,6 +20,15 @@
       >
         <button type="button" class="btn btn--primary">Edit</button>
       </a>
+
+      <a
+        class="edit-link"
+        [routerLink]="['editsurvey']"
+        [queryParams]="{ id: item.id }"
+      >
+        <button type="button" class="btn btn--primary">Results</button>
+      </a>
+
       <button
         type="button"
         class="btn btn--danger"

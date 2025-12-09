@@ -27,6 +27,19 @@ export class SurveyListComponent {
       this.items = currentItems;
     });
   }
+
+  public async runSurvey(id: number) {
+    await deleteSurvey(id, (currentItems) => {
+      this.items = currentItems;
+    });
+  }
+
+  public async resultSurvey(id: number) {
+    await deleteSurvey(id, (currentItems) => {
+      this.items = currentItems;
+    });
+  }
+
   async ngOnInit() {
     await getSurveyItems((currentItems) => {
       this.items = currentItems;
