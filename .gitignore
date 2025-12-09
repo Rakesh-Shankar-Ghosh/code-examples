@@ -1,4 +1,48 @@
-# Dependency directories
+# # Dependency directories
+# node_modules/
+
+# .angular/cache/
+
+
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
 node_modules/
 
-.angular/cache/
+# Angular CLI cache - NEW location since Angular v17.3+
+.angular/
+
+# Production build
+/dist
+/build
+
+# IDEs and editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
